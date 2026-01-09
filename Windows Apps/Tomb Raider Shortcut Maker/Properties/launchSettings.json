@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Tomb Raider Shortcut Maker (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Tomb Raider Shortcut Maker (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

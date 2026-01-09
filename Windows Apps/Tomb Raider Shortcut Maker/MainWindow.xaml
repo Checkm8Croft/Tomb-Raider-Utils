@@ -1,0 +1,51 @@
+<Window
+    x:Class="Tomb_Raider_Shortcut_Maker.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Tomb_Raider_Shortcut_Maker"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="Tomb Raider Shortcut Maker">
+
+    <!-- Effetto Windows 11 Mica -->
+    <Window.SystemBackdrop>
+        <MicaBackdrop />
+    </Window.SystemBackdrop>
+
+    <!-- Layout principale -->
+    <Grid Padding="20" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto">
+
+        <!-- Titolo -->
+        <TextBlock Grid.Row="0"
+                   Text="Tomb Raider Shortcut Maker"
+                   FontSize="24"
+                   FontWeight="SemiBold"
+                   Margin="0,0,0,20"/>
+
+        <!-- HStack: TextBox + Browse per TR2.exe -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Spacing="10">
+            <TextBox x:Name="ExePathBox" Header="Enter Tomb Raider Path:" PlaceholderText="Path" Width="300"/>
+            <Button Content="Browse" Click="BrowsePath" Margin="0,27,0,0"/>
+        </StackPanel>
+
+        <!-- HStack: CheckBox + ComboBox per argomento -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center" Spacing="10" Margin="0,20,0,0">
+            <CheckBox x:Name="UseArgumentCheckBox" Content="Use Argument" Checked="Args" Unchecked="NoArgs"/>
+            <ComboBox x:Name="ArgumentComboBox" SelectionChanged="Argument" Header="Arguments" PlaceholderText="Choose an argument" Width="150">
+                <x:String>-gold</x:String>
+                <x:String>-setup</x:String>
+            </ComboBox>
+        </StackPanel>
+
+        <!-- HStack: TextBox + Browse per cartella shortcut -->
+        <StackPanel Grid.Row="3" Orientation="Horizontal" Spacing="10" Margin="0,20,0,0">
+            <TextBox x:Name="ShortcutPathBox" Header="Shortcut Path:" PlaceholderText="Select folder" Width="300"/>
+            <Button Content="Browse" Click="BrowseShortcutPath" Margin="0,27,0,0"/>
+        </StackPanel>
+
+        <!-- Pulsante finale -->
+        <Button Grid.Row="4" Content="Create Shortcut" HorizontalAlignment="Left" Margin="0,30,0,0" Click="CreateShortcut_Click"/>
+
+    </Grid>
+</Window>
